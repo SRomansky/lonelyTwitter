@@ -29,7 +29,7 @@ public class ElasticsearchTweetController {
             verifySettings();
 
             ArrayList<NormalTweet> tweets = new ArrayList<NormalTweet>();
-
+            String search_string = "{\"from\":0,\"size\":1000,\"query\":{\"match\":{\"message\":\""+ search_parameters[0] +"\"}}}";
             // assume that search_parameters[0] is the only search term we are interested in using
             Search search = new Search.Builder(search_parameters[0])
                     .addIndex("testing")
